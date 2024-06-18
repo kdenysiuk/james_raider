@@ -8,8 +8,10 @@ import org.jamesraider.gui.mobile.android.mainmenu.PreviousRidesPage;
 import org.jamesraider.gui.mobile.android.settings.SettingsPage;
 
 public enum MainMenuItems {
-	SETTINGS("SETTINGS", SettingsPage.class), PREVIOUS_RIDES("PREVIOUS RIDES", PreviousRidesPage.class),
-	MY_DRIVERS("MY DRIVERS", MyDriversPage.class), LEGAL("LEGAL", LegalPage.class),
+	SETTINGS("SETTINGS", SettingsPage.class),
+	PREVIOUS_RIDES("PREVIOUS RIDES", PreviousRidesPage.class),
+	MY_DRIVERS("MY DRIVERS", MyDriversPage.class),
+	LEGAL("LEGAL", LegalPage.class),
 	SIGN_OUT("SIGN OUT", EnterYourPhoneNumberPage.class);
 
 	private final String itemName;

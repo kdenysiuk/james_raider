@@ -14,8 +14,7 @@ import io.appium.java_client.AppiumDriver;
 
 public class EnterTheSixDigitCodePage extends AbstractPage {
 
-	private final By ENTER_THE_SIX_DIGIT_CODE_TITLE = AppiumBy
-			.xpath("//*[@resource-id='com.hdw.james.rider:id/title' and @text='Enter the 6 digit code']");
+	private final By ENTER_THE_SIX_DIGIT_CODE_TITLE = AppiumBy.xpath("//*[@resource-id='com.hdw.james.rider:id/title' and @text='Enter the 6 digit code']");
 	private final By CODE_INPUT_BOXES = AppiumBy.id("com.hdw.james.rider:id/inputEditText");
 	private final By CONTINUE_BUTTON = AppiumBy.id("com.hdw.james.rider:id/continueButton");
 

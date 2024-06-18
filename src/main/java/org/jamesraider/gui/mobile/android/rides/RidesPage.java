@@ -12,8 +12,7 @@ import io.appium.java_client.AppiumDriver;
 
 public class RidesPage extends AbstractPage {
 
-	private final By RIDES_TITLE = AppiumBy
-			.xpath("//*[@resource-id='com.hdw.james.rider:id/toolbar']/android.widget.TextView[@text='Rides']");
+	private final By RIDES_TITLE = AppiumBy.xpath("//*[@resource-id='com.hdw.james.rider:id/toolbar']/android.widget.TextView[@text='Rides']");
 	private final By HAMBURGER_BUTTON = AppiumBy.id("com.hdw.james.rider:id/MAIN_MENU_ID");
 
 	public RidesPage(AppiumDriver driver) {

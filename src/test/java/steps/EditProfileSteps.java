@@ -17,14 +17,19 @@ public class EditProfileSteps extends AbstractSteps {
 	@And("User changes profile name")
 	public void userChangesProfileName() {
 		MainMenuPage mainMenuPage = new MainMenuPage(DriverManager.getDriver());
-		this.newRandomName = new RandomizeUtil().generateRandomAlphabeticWord(TEN);
-		ProfilePage profilePage = mainMenuPage.tapOnProfileItem().setName(newRandomName);
+		RandomizeUtil randomizeUtil = new RandomizeUtil();
+		String name = randomizeUtil.generateRandomAlphabeticWord(TEN);
+		String surname = randomizeUtil.generateRandomAlphabeticWord(TEN);
+		this.newRandomName = String.format("%s %s", name, surname);
+		ProfilePage profilePage = mainMenuPage.tapOnProfileItem().setName(name);
+		profilePage = profilePage.setSurname(surname);
 		profilePage.tapOnSaveButton();
 	}
 
 	@Then("User sees profile name has changed")
 	public void profileNameHasChanged() {
 		MainMenuPage mainMenuPage = new MainMenuPage(DriverManager.getDriver());
-		Assert.assertTrue(mainMenuPage.getProfileName().contains(newRandomName), "");
+		Assert.assertEquals(mainMenuPage.getProfileName(), newRandomName,
+				"[ MAIN MENU screen ]: Profile name is the same after user has changed it on 'Profile' page");
 	}
 }

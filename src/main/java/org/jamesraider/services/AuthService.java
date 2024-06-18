@@ -2,6 +2,7 @@ package org.jamesraider.services;
 
 import static org.jamesraider.constants.NumberConstants.FIVE;
 
+import org.jamesraider.components.CountriesDropBox;
 import org.jamesraider.constants.Countries;
 import org.jamesraider.entities.User;
 import org.jamesraider.gui.mobile.android.login.EnterTheSixDigitCodePage;
@@ -23,9 +24,9 @@ public class AuthService {
 	public void login(User user) {
 		WelcomePage welcomePage = new WelcomePage(driver);
 		EnterYourPhoneNumberPage enterYourPhoneNumberPage = welcomePage.clickGetStartedButton();
-		Countries country = enterYourPhoneNumberPage.getCountryByCountryCode(user.getPhoneCountryCode());
-		enterYourPhoneNumberPage = enterYourPhoneNumberPage.selectCountry(country)
-				.setNumberPhone(user.getPhoneNumber());
+		CountriesDropBox countriesDropBox = enterYourPhoneNumberPage.openCountriesDropBox();
+		Countries country = countriesDropBox.getCountryByCountryCode(user.getPhoneCountryCode());
+		enterYourPhoneNumberPage = countriesDropBox.selectCountry(country).setNumberPhone(user.getPhoneNumber());
 		EnterTheSixDigitCodePage enterTheSixDigitCodePage = enterYourPhoneNumberPage.tapOnContinueButton();
 		enterTheSixDigitCodePage = enterTheSixDigitCodePage.typeDigitCode(user.getSmsVerificationCode());
 		PermissionRequestPage permissionRequestPage = enterTheSixDigitCodePage.tapOnContinueButton();

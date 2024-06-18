@@ -2,6 +2,7 @@ package steps;
 
 import static org.jamesraider.constants.NumberConstants.FIVE;
 
+import org.jamesraider.components.CountriesDropBox;
 import org.jamesraider.constants.Countries;
 import org.jamesraider.entities.User;
 import org.jamesraider.gui.mobile.android.login.EnterTheSixDigitCodePage;
@@ -37,9 +38,9 @@ public class LoginSteps extends AbstractSteps {
 	@And("User sets country and number phone")
 	public void userSetsCountryAndPhoneNumber() {
 		EnterYourPhoneNumberPage enterYourPhoneNumberPage = new EnterYourPhoneNumberPage(driver);
-		Countries country = enterYourPhoneNumberPage.getCountryByCountryCode(user.getPhoneCountryCode());
-		enterYourPhoneNumberPage = enterYourPhoneNumberPage.selectCountry(country)
-				.setNumberPhone(user.getPhoneNumber());
+		CountriesDropBox countriesDropBox = enterYourPhoneNumberPage.openCountriesDropBox();
+		Countries country = countriesDropBox.getCountryByCountryCode(user.getPhoneCountryCode());
+		enterYourPhoneNumberPage = countriesDropBox.selectCountry(country).setNumberPhone(user.getPhoneNumber());
 		enterYourPhoneNumberPage.tapOnContinueButton();
 	}
 

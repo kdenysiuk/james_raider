@@ -17,8 +17,10 @@ public class DriverManager {
 	public static void createDriver() {
 		if (driver == null) {
 			try {
-				UiAutomator2Options options = new UiAutomator2Options().setUdid(CAPABILITIES_UDID)
-						.setApp(CAPABILITIES_APP_PATH).setAppPackage(CAPABILITIES_APP_PACKAGE)
+				UiAutomator2Options options = new UiAutomator2Options()
+						.setUdid(CAPABILITIES_UDID)
+						.setApp(CAPABILITIES_APP_PATH)
+						.setAppPackage(CAPABILITIES_APP_PACKAGE)
 						.setAppActivity(CAPABILITIES_APP_ACTIVITY);
 				driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);
 			} catch (MalformedURLException e) {

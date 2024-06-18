@@ -1,7 +1,9 @@
 package org.jamesraider.constants;
 
 public enum Countries {
-	AFGHANISTAN("Afghanistan", "+93"), UNITED_STATES("United States", "+1"), ZIMBABWE("Zimbabwe", "+263");
+	AFGHANISTAN("Afghanistan", "+93"),
+	UNITED_STATES("United States", "+1"),
+	ZIMBABWE("Zimbabwe", "+263");
 	// Add all available countries
 
 	private final String countryName;
